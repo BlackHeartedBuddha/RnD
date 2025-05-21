@@ -1,8 +1,8 @@
-use actix_web::{App, HttpServer, Responder};
+use actix_web::{App, web, HttpServer, Responder};
 
-#[actix_web::get("/greet")]
-async fn greet() -> impl Responder {
-    format!("Hello World")
+#[actix_web::get("/greet/{id}")]
+async fn greet(id :  web::Path<u32>) -> impl Responder {
+    format!("Hello World {id}")
 
 }
 
