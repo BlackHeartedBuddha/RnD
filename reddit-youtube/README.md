@@ -39,3 +39,7 @@ rails db:migrate
 ## File directory:
 
 - app/views/layout/application.html.erb //where the style cdn was added
+
+## Gems 
+- https://rubygems.org/ 
+- Gemfile
