@@ -1,5 +1,6 @@
 class SubredditsController < ApplicationController
   before_action :set_subreddit, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[new ]
 
   # GET /subreddits or /subreddits.json
   def index
