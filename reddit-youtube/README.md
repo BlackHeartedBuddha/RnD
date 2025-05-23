@@ -25,7 +25,6 @@ Things you may want to cover:
 
 ## Useful commands
 ```bash
-
 rails new project_name
 
 rails g scaffold ObjectName field:type field2:type
@@ -37,3 +36,6 @@ rails db:migrate
 
 
 ```
+## File directory:
+
+- app/views/layout/application.html.erb //where the style cdn was added
