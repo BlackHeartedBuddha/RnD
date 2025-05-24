@@ -1,6 +1,6 @@
 class SubredditsController < ApplicationController
   before_action :set_subreddit, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[new ]
+  before_action :authenticate_user!, only: %i[new edit update create destroy ]
 
   # GET /subreddits or /subreddits.json
   def index
@@ -37,6 +37,7 @@ class SubredditsController < ApplicationController
 
   # PATCH/PUT /subreddits/1 or /subreddits/1.json
   def update
+    if current_user && current_user.id == @subreddit.user_id # prevents user to create own button
     respond_to do |format|
       if @subreddit.update(subreddit_params)
         format.html { redirect_to @subreddit, notice: "Subreddit was successfully updated." }
@@ -47,14 +48,17 @@ class SubredditsController < ApplicationController
       end
     end
   end
+  end
 
   # DELETE /subreddits/1 or /subreddits/1.json
   def destroy
+    if current_user && current_user.id == @subreddit.user_id # prevents user to create own button
     @subreddit.destroy!
-
+  
     respond_to do |format|
       format.html { redirect_to subreddits_path, status: :see_other, notice: "Subreddit was successfully destroyed." }
       format.json { head :no_content }
+    end
     end
   end
 
