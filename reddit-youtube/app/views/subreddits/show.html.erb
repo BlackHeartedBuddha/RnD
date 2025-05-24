@@ -3,10 +3,10 @@
 <%= render @subreddit %>
 
 <% if current_user && current_user.id == @subreddit.user_id %>
-<div>
-  <%= link_to "Edit this subreddit", edit_subreddit_path(@subreddit) %> |
+  <div>
+    <%= link_to "Edit this subreddit", edit_subreddit_path(@subreddit) %> |
 
-  <%= button_to "Destroy this subreddit", @subreddit, method: :delete %>
-</div>
+    <%= button_to "Destroy this subreddit", @subreddit, method: :delete %>
+  </div>
 <% end %>
-  <%= link_to "Back to subreddits", subreddits_path %>
+<%= link_to "Back to subreddits", subreddits_path %>
