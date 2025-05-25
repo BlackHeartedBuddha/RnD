@@ -9,4 +9,7 @@
     <%= button_to "Destroy this subreddit", @subreddit, method: :delete %>
   </div>
 <% end %>
+<%= link_to "New Post", new_post_path(subreddit_id: @subreddit.id) %>
 <%= link_to "Back to subreddits", subreddits_path %>
+
+<%= render @posts %>

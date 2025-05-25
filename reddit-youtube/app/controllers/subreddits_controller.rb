@@ -9,6 +9,8 @@ class SubredditsController < ApplicationController
 
   # GET /subreddits/1 or /subreddits/1.json
   def show
+
+    @posts = @subreddit.posts
   end
 
   # GET /subreddits/new

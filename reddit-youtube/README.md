@@ -33,7 +33,12 @@ rails s
 
 rails db:migrate
 
+ rails g scaffold Post title:text body:text user_id:integer subreddit_id:integer
 
+  780  rails g scaffold Post title:text body:text user_id:integer subreddit_id:integer
+  781  rails g migration AddSlugToPosts slug:uniq 
+  782  rails db:migrate
+  783  history
 
 ```
 ## File directory:
