@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :votes
+  has_many :comments
 
   def total_score
     votes.sum(:value)

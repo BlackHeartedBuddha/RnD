@@ -55,6 +55,9 @@ rails db:migrate
   807  rails generate migration RemoveSubredditIdFromVotes subreddit_id:integer
   808  rails db:migrate
 
+  817  rails g model comment content:string post_id:integer user_id:integer
+  818  rails db:migrate
+
 ```
 ## File directory:
 

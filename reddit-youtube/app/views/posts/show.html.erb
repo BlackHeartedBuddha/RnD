@@ -2,6 +2,7 @@
 
 <%= render @post %>
 
+<% if current_user %>
 <%= form_with(model: [@post, @vote], url: upvote_post_path, method: :post, id: "up-vote-form") do |form| %>
   <%= form.number_field :value, value: 1, type:"hidden" %>
   <%= form.submit "upvote" %>
@@ -11,10 +12,29 @@
   <%= form.submit "downvote" %>
 <% end %>
 
+
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+  <h5>
+    <%= comment.content %> -
+    <%= comment.user.email %>
+  </h5>
+<% end %>
+
+<%= form_with(model: [@post, @comment], url: create_comment_post_path, method: :post) do |form| %>
+  <h2> Add Comment </h2>
+  <%= form.text_field :content%>
+  <%= form.text_field :user_id, value: current_user.id, type:"hidden" %>
+  <%= form.text_field :post_id, value: @post.id, type:"hidden"%>
+  <%= form.submit %>
+<% end %>
+<% end %>
+
+
 <% if current_user && current_user.id == @post.user_id %>
 <div>
-  <%= link_to 'Back to Subreddit', subreddit_path(@post.subreddit), class: 'btn btn-primary' %>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to 'Back to Subreddit', subreddit_path(@post.subreddit), class: 'btn btn-primary' %> |
+  <%= link_to "Edit this post", edit_post_path(@post) %> 
 
   <%= button_to "Destroy this post", @post, method: :delete  %>
 </div>
