@@ -45,6 +45,16 @@ rails db:migrate
   792  rails db:migrate
   793  git status
 
+ 800  rails g model vote user:references subreddit:references
+  801  rails db:migrate
+  802  rails g migration AddPostIdToVotes post post_id:integer
+  803  rails db:migrate
+  804  V
+  805  rails generate migration AddValueToVotes value:integer
+  806  rails db:migrate
+  807  rails generate migration RemoveSubredditIdFromVotes subreddit_id:integer
+  808  rails db:migrate
+
 ```
 ## File directory:
 

@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+
+    @vote = Vote.new
   end
 
   # GET /posts/new
@@ -15,6 +17,26 @@ class PostsController < ApplicationController
     @post = Post.new
     @subreddit = Subreddit.friendly.find(params[:subreddit_id])
   end
+
+
+  def upvote
+  @post = Post.find_by(slug: params[:id])
+  @vote = current_user.votes.find_or_initialize_by(post: @post)
+  @vote.value = 1
+  @vote.save
+  redirect_to @post
+
+  end
+
+  def downvote
+  @post = Post.find_by(slug: params[:id])
+  @vote = current_user.votes.find_or_initialize_by(post: @post)
+  @vote.value = -1
+  @vote.save
+  redirect_to @post
+
+  end
+
 
   # GET /posts/1/edit
   def edit
