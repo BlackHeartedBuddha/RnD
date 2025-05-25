@@ -40,6 +40,11 @@ rails db:migrate
   782  rails db:migrate
   783  history
 
+  790  rails activatge_storage:install
+  791  rails active_storage:install
+  792  rails db:migrate
+  793  git status
+
 ```
 ## File directory:
 
