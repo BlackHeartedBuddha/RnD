@@ -25,4 +25,8 @@ mix ecto.create
 
 mix phx.server
 
+mix format
+
+mix deps.get
+
 ```
