@@ -29,4 +29,11 @@ mix format
 
 mix deps.get
 
+mix phx.gen.json Posts Post posts body:string title:string
+
+mix ecto.migrate
+
+  854  curl -X POST http://localhost:4000/api/posts   -H "Content-Type: application/json"   -d '{"post": {"title": "Second Title", "body": "This is the body of the post."}}'
+  855  history
+
 ```
