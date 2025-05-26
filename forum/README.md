@@ -39,4 +39,11 @@ mix ecto.migrate
   862  mix phx.gen.json Accounts User users name:string email:string:unique
   863  mix ecto.migrate
 
+  871  mix ecto.gen.migration add_user_id_to_posts
+  872  mix ecto.migrate
+  873* curl -X POST http://localhost:4000/api/posts   -H "Content-Type: application/json"   -d '{"user": {"name": "Username", "email": "test@mail.com"}}'
+  874  curl -X POST http://localhost:4000/api/posts   -H "Content-Type: application/json"   -d '{"post": {"title": "Third Title", "body": "This is the body of the post.", "user_id" : 1}}'
+  875  curl -X POST http://localhost:4000/api/posts   -H "Content-Type: application/json"   -d '{"post": {"title": "Fourth Post", "body": "This is the body of the post.", "user_id" : 1}}'
+  876  git status
+
 ```
