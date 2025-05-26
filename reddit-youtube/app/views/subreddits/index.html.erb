@@ -3,6 +3,15 @@
 <% content_for :title, "Subreddits" %>
 
 <h1>Subreddits</h1>
+<%= link_to "New subreddit", new_subreddit_path %>
+<h2>Search for Subreddits</h2>
+<%= form_with url: search_subreddits_path, method: :post do |form| %>
+  <%= form.search_field :title_search, oninput: "this.form.requestSubmit()", style:"width: 100%;" %>
+<% end %>
+<div id="search_results">
+  Search Results
+</div>
+
 
 <div id="subreddits">
   <% @subreddits.each do |subreddit| %>
@@ -10,4 +19,3 @@
   <% end %>
 </div>
 
-<%= link_to "New subreddit", new_subreddit_path %>

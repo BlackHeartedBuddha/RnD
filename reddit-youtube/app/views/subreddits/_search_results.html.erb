@@ -1,0 +1,14 @@
+<h2>Results:</h2>
+<ul>
+
+  <% @subreddits.each do |subreddit| %>
+    <%= link_to subreddit, class: "search_result" do %>
+      <li>
+        <h3>
+          R/<%= subreddit.title %>
+        </h3>
+      </li>
+    <% end %>
+  <% end %>
+
+</ul>

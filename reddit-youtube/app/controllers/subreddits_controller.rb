@@ -7,6 +7,21 @@ class SubredditsController < ApplicationController
     @subreddits = Subreddit.all
   end
 
+def search
+  if params[:title_search].present?
+    @subreddits = Subreddit.where("title LIKE ?", "%#{params[:title_search]}%")
+  else
+    @subreddits = []
+  end
+
+  respond_to do |format|
+    format.turbo_stream do
+      render turbo_stream: turbo_stream.update("search_results", partial: "subreddits/search_results", locals: { subreddits: @subreddits })
+    end
+  end
+end
+
+
   # GET /subreddits/1 or /subreddits/1.json
   def show
     @membership = Membership.new
