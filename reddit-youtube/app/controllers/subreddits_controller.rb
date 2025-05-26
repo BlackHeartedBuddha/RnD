@@ -9,7 +9,7 @@ class SubredditsController < ApplicationController
 
   # GET /subreddits/1 or /subreddits/1.json
   def show
-
+    @membership = Membership.new
     @posts = @subreddit.posts
   end
 
@@ -20,6 +20,12 @@ class SubredditsController < ApplicationController
 
   # GET /subreddits/1/edit
   def edit
+  end
+
+  def my_subreddits
+    if current_user
+      @user_memberships = current_user.memberships
+    end
   end
 
   # POST /subreddits or /subreddits.json

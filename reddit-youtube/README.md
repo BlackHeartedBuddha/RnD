@@ -58,8 +58,9 @@ rails db:migrate
   817  rails g model comment content:string post_id:integer user_id:integer
   818  rails db:migrate
 
-```
-## File directory:
+  827  rails g scaffold membership user_id:integer subreddit_id:string
+  828  rails db:migrate
+``` ## File directory:
 
 - app/views/layout/application.html.erb //where the style cdn was added
 

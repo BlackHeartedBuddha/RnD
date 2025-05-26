@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
       has_many :posts
-      has_many :subreddits
+      has_many :subreddits      
+      has_many :memberships
       has_many :votes
 end

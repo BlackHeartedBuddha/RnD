@@ -59,6 +59,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+     @subreddit = @post.subreddit
   end
 
   # POST /posts or /posts.json
