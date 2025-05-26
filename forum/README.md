@@ -36,4 +36,7 @@ mix ecto.migrate
   854  curl -X POST http://localhost:4000/api/posts   -H "Content-Type: application/json"   -d '{"post": {"title": "Second Title", "body": "This is the body of the post."}}'
   855  history
 
+  862  mix phx.gen.json Accounts User users name:string email:string:unique
+  863  mix ecto.migrate
+
 ```
